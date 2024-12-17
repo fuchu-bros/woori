@@ -1,0 +1,35 @@
+.ui-table{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    .ui-table-row {
+        display: flex;
+        border-bottom: 1px solid #dfdfdf;
+        .ui-table-field {
+            flex: 1;
+            display: flex;
+            & > * {
+                display: flex;
+                height: 40px;
+                align-items: center;
+            }
+            .ui-table-label{
+                flex: 0 0 120px;
+                background: #f1f1f1;
+                justify-content: center;
+                font-weight: 500;
+            }
+            .ui-table-cell{
+                flex: 1;
+                input{
+                    -webkit-appearance: none;
+                    appearance: none;
+                    outline: none;
+                    border: none;
+                    background: transparent;
+                    font: inherit;
+                }
+            }
+        }
+    }
+}
