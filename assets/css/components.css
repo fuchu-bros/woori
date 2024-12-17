@@ -1,33 +1,118 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body{
+    font-size: 10px;
+}
+
+body {
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+
+    --color-neutral100: #FAFBFC;
+    --color-grayscaleA: #111111;
+    --color-grayscaleB: #333333 ;
+    --color-grayscaleD: #757575;
+    --color-warning: #DC0000;
+    --fs-normal: 1.6rem;
+
+    --gap: 8px;
+    --gap2: 16px;
+    --gap3: 24px;
+
+    font-size: var(--fs-normal);
+    letter-spacing: -0.2;
+}
+
+button {
+    -webkit-appearance: none;
+    appearance: none;
+    border: 0 none;
+    outline: 0 none;
+    background: transparent;
+    cursor: pointer;
+    font: inherit;
+    padding: 0;
+}
+
 .ui-table{
+    --table-height: 54px;
+    --table-border: #ddd;
+    --table-inner-border: #ebebeb;
+
     width: 100%;
     display: flex;
     flex-direction: column;
+    border-radius: 12px;
+    overflow: hidden;
+    color: var(--color-grayscaleA);
+    border: 1px solid var(--table-border);
     .ui-table-row {
         display: flex;
-        border-bottom: 1px solid #dfdfdf;
+        border-bottom: 1px solid var(--table-inner-border);
+        &:last-child {
+            border-bottom: 0 none;
+        }
         .ui-table-field {
-            flex: 1;
             display: flex;
+            flex: 1;
+            & + .ui-table-field {
+                border-left: 1px solid var(--table-inner-border);
+            }
             & > * {
                 display: flex;
-                height: 40px;
+                height: var(--table-height);
                 align-items: center;
             }
             .ui-table-label{
                 flex: 0 0 120px;
-                background: #f1f1f1;
-                justify-content: center;
+                background: var(--color-neutral100);
                 font-weight: 500;
+                color: var(--color-grayscaleB);
+                padding: 0 var(--gap3);
+                &.required {
+                    &:after {
+                        content: "";
+                        width: 6px;
+                        height: 6px;
+                        border-radius: 50%;
+                        transform: translate(4px, -6px);
+                        background: var(--color-warning);
+                    }
+                }
             }
             .ui-table-cell{
                 flex: 1;
-                input{
-                    -webkit-appearance: none;
-                    appearance: none;
-                    outline: none;
-                    border: none;
-                    background: transparent;
-                    font: inherit;
+                align-items: stretch;
+                & > * {
+                    border-left: 1px solid var(--table-inner-border);
+                }
+                label{
+                    display: flex;
+                    align-items: stretch;
+                    flex: 1;
+                    input{
+                        -webkit-appearance: none;
+                        appearance: none;
+                        outline: none;
+                        border: none;
+                        background: transparent;
+                        font: inherit;
+                        width: 100%;
+                        height: 100%;
+                        border: 0 none;
+                        padding: 0 var(--gap3);
+                        &:focus {
+                            box-shadow: 0 0 0px 1px blue;
+                            z-index: 1;
+                        }
+                        &::placeholder {
+                            color: var(--color-grayscaleD);
+                        }
+                    }
+                }
+                .ui-table-button{
+                    flex: 0 0 var(--table-height);
                 }
             }
         }
