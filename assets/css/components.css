@@ -40,6 +40,8 @@ button {
     --table-border: #ddd;
     --table-inner-border: #ebebeb;
 
+    --table-label: 160px;
+
     width: 100%;
     display: flex;
     flex-direction: column;
